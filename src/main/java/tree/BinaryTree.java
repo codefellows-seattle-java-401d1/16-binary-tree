@@ -60,7 +60,7 @@ public class BinaryTree {
 
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        return preOrder(builder, this.root).toString();
+        return inOrder(builder, this.root).toString();
     }
 
     private StringBuilder preOrder(StringBuilder builder, TreeNode current) {

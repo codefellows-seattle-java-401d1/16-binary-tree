@@ -23,6 +23,7 @@ public class main {
         treeTest.add(4);
         treeTest.add(5);
         treeTest.add(6);
+        System.out.println(treeTest.toString());
         System.out.println(treeTest.size());
         System.out.println(treeTest.sizeCheat(treeTest));
         System.out.println(treeTest.min());
