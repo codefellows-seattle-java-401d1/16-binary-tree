@@ -2,8 +2,6 @@ package server;
 
 public class BinaryTree {
     public TreeNode root;
-    public int count;
-
 
     public TreeNode getRoot() {
         return root;
@@ -25,18 +23,8 @@ public class BinaryTree {
             return 0;
         }
 
-        //following the inOrder version, call size on the left first
-        size(current.left);
-
-        //increment the count
-        count ++;
-        System.out.println("count = " + count);
-
-        //following the inOrder version, call the size method on the right
-        size(current.right);
-
-        //unknown bug causing all counts to be duplicated, but dividing by 2 gives an accurate size. Tested with lopsided trees also.
-        return count/2;
+        //see comments on the bottom of this page
+        return size(current.left) + size(current.right) + 1;
     }
 
     //=========== FROM LECTURE ===========
@@ -103,6 +91,7 @@ public class BinaryTree {
     }
 
     //All below here was written by Steve during lecture
+    //toString() is using the inOrder method instead of the pre or post
     public String toString() {
         StringBuilder builder = new StringBuilder();
         return inOrder(builder, this.root).toString();
@@ -137,10 +126,45 @@ public class BinaryTree {
             return builder;
         }
 
-        preOrder(builder, current.left);
-        preOrder(builder, current.right);
+        postOrder(builder, current.left);
+        postOrder(builder, current.right);
         builder.append(current.data + " ");
 
         return builder;
     }
 }
+
+
+/*
+
+After working with Molly for quite a while we couldn't figure out why the count was perfectly doubling. It doesn't matter how weird the tree is shaped, it gave the correct count when divided by 2. Steve wrote a cleaner one line piece of code but I cannot read it as well so I wanted to keep this version to work on it later.
+
+    public int size() {
+        if (this.root == null) {
+            return 0;
+        }
+        return this.size(this.root);
+    }
+
+    private int size(TreeNode current) {
+
+        //make sure current is not null
+        if (current == null) {
+            return 0;
+        }
+
+        //following the inOrder version, call size on the left first
+        size(current.left);
+
+        increment the count
+        count ++;
+        System.out.println("count = " + count);
+
+        //following the inOrder version, call the size method on the right
+        size(current.right);
+
+        //unknown bug causing all counts to be duplicated, but dividing by 2 gives an accurate size. Tested with lopsided trees also.
+        return count/2;
+    }
+
+ */

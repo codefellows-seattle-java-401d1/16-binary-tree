@@ -46,5 +46,8 @@ public class main {
     tree.size();
 
         System.out.println(tree.size());
+        StringBuilder building = new StringBuilder();
+
+        System.out.println(tree.toString());
 }
 }
