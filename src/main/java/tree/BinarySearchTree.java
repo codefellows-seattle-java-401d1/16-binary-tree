@@ -1,15 +1,15 @@
-package tree;
+package main.java.tree;
 
 public class BinarySearchTree {
-    private TreeNode root;
+    private tree.TreeNode root;
 
-    public TreeNode getRoot() {
+    public tree.TreeNode getRoot() {
         return root;
     }
 
     public void add(int value) {
         if (this.root == null) {
-            this.root = new TreeNode(value);
+            this.root = new tree.TreeNode(value);
             return;
         }
         this.add(value, this.root);
@@ -17,16 +17,16 @@ public class BinarySearchTree {
 
     // moving through the tree until we find a free
     // spot to place the new value.
-    private void add(int value, TreeNode current) {
+    private void add(int value, tree.TreeNode current) {
         // found a proper spot on the left!
         if (current.left == null && value <= current.data) {
-            current.left = new TreeNode(value);
+            current.left = new tree.TreeNode(value);
             return;
         }
 
         // found a proper spot on the right!
         if (current.right == null && value > current.data) {
-            current.right = new TreeNode(value);
+            current.right = new tree.TreeNode(value);
             return;
         }
 
@@ -42,7 +42,7 @@ public class BinarySearchTree {
     // sets up a pointer to the root node then always moves left
     // to get to the smallest value in the tree and returns it.
     public int min() {
-        TreeNode current = this.root;
+        tree.TreeNode current = this.root;
         while (current.left != null) {
             current = current.left;
         }
@@ -51,7 +51,7 @@ public class BinarySearchTree {
 
     // same as min, but move right to get maximum value
     public int max() {
-        TreeNode current = this.root;
+        tree.TreeNode current = this.root;
         while (current.right != null) {
             current = current.right;
         }
@@ -63,7 +63,7 @@ public class BinarySearchTree {
         return inOrder(builder, this.root).toString();
     }
 
-    private StringBuilder preOrder(StringBuilder builder, TreeNode current) {
+    private StringBuilder preOrder(StringBuilder builder, tree.TreeNode current) {
         if (current == null) {
             return builder;
         }
@@ -75,7 +75,7 @@ public class BinarySearchTree {
         return builder;
     }
 
-    private StringBuilder inOrder(StringBuilder builder, TreeNode current) {
+    private StringBuilder inOrder(StringBuilder builder, tree.TreeNode current) {
         if (current == null) {
             return builder;
         }
@@ -87,7 +87,7 @@ public class BinarySearchTree {
         return builder;
     }
 
-    private StringBuilder postOrder(StringBuilder builder, TreeNode current) {
+    private StringBuilder postOrder(StringBuilder builder, tree.TreeNode current) {
         if (current == null) {
             return builder;
         }
@@ -103,7 +103,7 @@ public class BinarySearchTree {
         return this.contains(value, this.root);
     }
 
-    private boolean contains(int value, TreeNode node) {
+    private boolean contains(int value, tree.TreeNode node) {
         if (node == null) {
             return false;
         }
@@ -117,16 +117,17 @@ public class BinarySearchTree {
         return wasOnLeft || wasOnRight;
     }
 
-    public int size(TreeNode node) {
+    public int size(tree.TreeNode node) {
 
         int total = 0;
 
         if (node == null) {
             return 0;
         } else {
-            total = (size(node.left) + size(node.right) + root);
+            // Count all nodes on the left of the tree plus all the nodes on the right plus the root of course.
+            total = (size(node.left) + size(node.right) + 1);
         }
-
+        System.out.println(total);
         return total;
     }
 }
