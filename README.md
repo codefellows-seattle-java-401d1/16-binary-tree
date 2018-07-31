@@ -4,12 +4,12 @@
 * [Wikipedia: Binary Tree](https://en.wikipedia.org/wiki/Binary_tree)
 
 ## Feature Tasks
-* Create a class called `TreeNode`
+* Create a class called `server.TreeNode`
   * Add a public property of type `int` called `data`
-  * Add a public property of type `TreeNode` called `left`
-  * Add a public property of type `TreeNode` called `right`
-* Create a class called `BinaryTree`
-  * Add private a property of type `TreeNode` called `root`
+  * Add a public property of type `server.TreeNode` called `left`
+  * Add a public property of type `server.TreeNode` called `right`
+* Create a class called `server.BinaryTree`
+  * Add private a property of type `server.TreeNode` called `root`
   * Build three public traversal methods that traverse the tree and return the
     data in the tree as a list of type `List`:
     * `inOrder` traversal that visits left, current, right
@@ -38,13 +38,13 @@ public boolean contains(int value) {
   return contains(value, this.root);
 }
 
-private boolean contains(int value, TreeNode node) {
+private boolean contains(int value, server.TreeNode node) {
 
 }
 ```
 
 ```java
-BinaryTree<Integer> tree = new BinaryTree<>();
+server.BinaryTree<Integer> tree = new server.BinaryTree<>();
 ```
 
 ## Submission Instructions
