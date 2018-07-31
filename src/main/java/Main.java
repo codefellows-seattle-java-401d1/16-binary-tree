@@ -32,5 +32,8 @@ public class Main {
         System.out.println("Is the passed value in the tree?: " + tree.contains(7)); // expect false
         System.out.println("Is the passed value in the tree?: " + tree.contains(75)); // expect true
 
+        // Example of toString method, which currently print inOrder
+        System.out.println("toString inOder: " + tree.toString());
+
     }
 }
