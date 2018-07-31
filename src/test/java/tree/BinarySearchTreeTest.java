@@ -1,9 +1,9 @@
 package tree;
 
-import main.java.tree.BinarySearchTree;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.Assert.assertEquals;
 
 public class BinarySearchTreeTest {
 
@@ -29,6 +29,8 @@ public class BinarySearchTreeTest {
         tree.add(2);
         tree.add(15);
         tree.toString();
+
+        System.out.println(tree.toString());
 
         assertEquals("2 6 12 15 ", tree.toString());
     }
