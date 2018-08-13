@@ -18,8 +18,7 @@
     * `postOrder` traversal that visits left, right, current
   * Build a public method `toString()` that returns an in-order traversal of
     the tree as a String. (You may use `java.util.Arrays.toString`)
-  * Build a public method called `size()` that returns the minimum value all
-    throughout the tree.
+  * Build a public method called `size()` that returns the number of nodes in a tree. 
   * Build a public method called `min()` that returns the minimum value all
     throughout the tree.
   * Build a public method called `contains(int val)` that returns `true` or
